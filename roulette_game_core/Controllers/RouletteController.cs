@@ -8,12 +8,9 @@ using System.Threading.Tasks;
 
 namespace roulette_game_core.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class RouletteController : ControllerBase
+    public class RouletteController : BaseController
     {
         // endpoint to list all the roulettes and their status
-        // if winnerNumber=-1 then the roulette is still open, otherwise it's already closed
         [HttpGet]
         public IEnumerable<Object> Get()
         {
