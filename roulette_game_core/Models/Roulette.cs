@@ -13,8 +13,9 @@ namespace roulette_game_core.Models
         }
 
         public int Id { get; set; }
-        public int WinnerNumber { get; set; }
+        public int RouletteStatusId { get; set; }
 
+        public virtual RouletteStatus RouletteStatus { get; set; }
         public virtual ICollection<RouletteBet> RouletteBets { get; set; }
     }
 }

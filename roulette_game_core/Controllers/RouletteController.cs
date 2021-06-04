@@ -19,11 +19,14 @@ namespace roulette_game_core.Controllers
         {
             using (var context = new masivianContext())
             {
-                return context.Roulettes.ToList<Roulette>().Select(nRoulette => new
-                {
-                    nRoulette.Id,
-                    Status= nRoulette.WinnerNumber == -1 ? "Open" : "Close"
-                });
+                return (from r in context.Roulettes
+                        join rs in context.RouletteStatuses
+                        on r.RouletteStatusId equals rs.Id
+                        select new
+                        {
+                            r.Id,
+                            Status = rs.StatusName
+                        }).ToList();
             }
         }
 
