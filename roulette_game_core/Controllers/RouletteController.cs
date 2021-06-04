@@ -42,5 +42,29 @@ namespace roulette_game_core.Controllers
                 return nRoulette.Id;
             }
         }
+
+        [HttpPut]
+        [Route("open/{id}")]
+        public IActionResult Open(int id)
+        {
+            try
+            {
+                using (var context = new masivianContext())
+                {
+                    Roulette nRoulette = context.Roulettes.Find(id);
+                    if (nRoulette.RouletteStatusId == 1)
+                    {
+                        nRoulette.RouletteStatusId = 2;
+                        context.SaveChanges();
+                        return StatusCode(200);
+                    }
+                    else return StatusCode(403);
+                }
+            }
+            catch
+            {
+                return StatusCode(400);
+            }
+        }
     }
 }
