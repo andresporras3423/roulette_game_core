@@ -13,7 +13,13 @@ namespace roulette_game_core.Controllers
 {
     public class RouletteBetController : BaseController
     {
-        // endpoint to create a new roulette
+        // endpoint para crear una apuesta
+        // recibe en los headers:
+        // user_id -> id del usuario
+        // recibe como parámetros en el body:
+        // roulette_id -> id de la ruleta
+        // bet -> se envía como string, puede tener valor "rojo", "negro" o un entero entre "0" y "36"
+        // bet_value -> tipo float, es un número mayor a 0 y menor a 10000
         [HttpPost]
         public string Post()
         {
@@ -36,7 +42,7 @@ namespace roulette_game_core.Controllers
         }
 
 
-        // this method makes some validations over the post params
+        // valida que todo los parámetros del post
         private string validate_bet(Dictionary<string, string> body, Dictionary<string, string> headers, Roulette nRoulette)
         {
             if (nRoulette == null) 

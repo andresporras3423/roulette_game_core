@@ -11,7 +11,9 @@ namespace roulette_game_core.Controllers
 {
     public class RouletteController : BaseController
     {
-        // endpoint to list all the roulettes and their status
+        // endpoint para listar todas las ruletas y su respectivo estado
+        // no requiere ningún parámetro
+        // retorna todos las ruletas con su respectivo id y estado
         [HttpGet]
         public IEnumerable<Object> Get()
         {
@@ -28,7 +30,9 @@ namespace roulette_game_core.Controllers
             }
         }
 
-        // endpoint to create a new roulette
+        // enpoint para crear una ruleta
+        // No necesita parámetros
+        // retorna el id de la ruleta creada
         [HttpPost]
         public int Post()
         {
@@ -41,6 +45,9 @@ namespace roulette_game_core.Controllers
             }
         }
 
+        // endpoint para cambiar estado de un ruleta, de creada a abierta
+        // recibe como parámetro en la url el id de la ruleta
+        // retorna un html status, 200 si el proceso fue exitoso, 403 si la ruleta no está abierta, 400 si la ruleta no existe
         [HttpPut]
         [Route("open/{id}")]
         public IActionResult Open(int id)
@@ -65,6 +72,9 @@ namespace roulette_game_core.Controllers
             }
         }
 
+        // enpoint para cerrar la ruleta
+        // recibe como parámetro en la url el id de la ruleta
+        // retorna un objecto que puede ser un string con un mensaje de error o la lista de todas las apuestas realizadas en la ruleta y su resultado
         [HttpPut]
         [Route("close/{id}")]
         public object Close(int id)

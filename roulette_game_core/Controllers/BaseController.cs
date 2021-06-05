@@ -13,6 +13,7 @@ namespace roulette_game_core.Controllers
     [ApiController]
     public class BaseController : ControllerBase
     {
+        // método para leer los parámetros en el body
         public Dictionary<string, string> read_body()
         {
             Dictionary<string, string> reqObj = new Dictionary<string, string>();
@@ -24,6 +25,7 @@ namespace roulette_game_core.Controllers
             return reqObj;
         }
 
+        // método para leer los parámetros en el headers
         public Dictionary<string, string> read_headers()
         {
             Dictionary<string, string> requestHeaders = new Dictionary<string, string>();

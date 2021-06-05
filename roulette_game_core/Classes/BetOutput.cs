@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace roulette_game_core.Classes
 {
+    // esta clase fue creada para retornar la información de las apuestas cuando una ruleta se cierra
     public class BetOutput
     {
         int PlayerId;
@@ -26,6 +27,6 @@ namespace roulette_game_core.Classes
         {
             return new { this.PlayerId, this.Bet, this.BetValue, this.BetStatus, this.BetPrize };
         }
-    };
+    }
 }
 
