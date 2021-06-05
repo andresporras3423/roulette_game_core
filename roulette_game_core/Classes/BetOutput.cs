@@ -14,8 +14,10 @@ namespace roulette_game_core.Classes
         string BetStatus;
         double BetValue;
         double BetPrize;
+        int WinnerNumber;
         public BetOutput(int PlayerId, string Bet, double BetValue, int rand)
         {
+            this.WinnerNumber = rand;
             this.PlayerId = PlayerId;
             this.Bet = Bet;
             this.BetValue = BetValue;
@@ -25,7 +27,7 @@ namespace roulette_game_core.Classes
 
         public object displayContent()
         {
-            return new { this.PlayerId, this.Bet, this.BetValue, this.BetStatus, this.BetPrize };
+            return new { this.PlayerId, this.Bet, this.BetValue, this.WinnerNumber, this.BetStatus, this.BetPrize };
         }
     }
 }
