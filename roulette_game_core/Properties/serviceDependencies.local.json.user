@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2021-06-05T16:51:48.8778028Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2021-06-05T16:51:51.0707825Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "b643a19e-6f33-4a2e-ae5f-f3de57243c46"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "recursos_russi"
+    }
+  }
+}
