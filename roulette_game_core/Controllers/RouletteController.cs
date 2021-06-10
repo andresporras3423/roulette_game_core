@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using roulette_game_core.Classes;
 using roulette_game_core.Models;
 using System;
@@ -101,6 +103,18 @@ namespace roulette_game_core.Controllers
             catch
             {
                 return new { error = "La ruleta con el id especificado no existe" };
+            }
+        }
+
+        [HttpPut]
+        [Route("close2/{id}")]
+        public async Task<List<RouletteOutput>> Close2(int id)
+        {
+            using (var context = new masivianContext())
+            {
+                var pId = new SqlParameter("@id", id);
+                List<RouletteOutput> outputs = await context.RouletteOutputs.FromSqlRaw("EXECUTE dbo.cr @id", parameters: new[] { pId }).ToListAsync();
+                return outputs;
             }
         }
     }
